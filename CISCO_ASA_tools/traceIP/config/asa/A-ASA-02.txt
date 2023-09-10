@@ -1,0 +1,36 @@
+A-ASA-02# 
+A-ASA-02# show route
+
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, V - VPN
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, + - replicated route
+       SI - Static InterVRF, BI - BGP InterVRF
+Gateway of last resort is not set
+
+O        10.0.0.0 255.255.255.0 [110/11] via 192.168.20.1, 06:51:48, inside1
+O        10.0.1.0 255.255.255.0 [110/22] via 192.168.20.1, 06:51:48, inside1
+O        10.0.10.0 255.255.255.0 [110/12] via 192.168.20.1, 06:51:48, inside1
+O        172.16.1.0 255.255.255.0 [110/22] via 192.168.20.1, 06:51:48, inside1
+O        172.16.2.0 255.255.255.0 [110/22] via 192.168.20.1, 06:51:48, inside1
+O        172.16.10.0 255.255.255.0 
+           [110/12] via 192.168.20.1, 06:51:48, inside1
+O        172.16.20.0 255.255.255.0 
+           [110/12] via 192.168.20.1, 06:51:48, inside1
+O        192.168.1.0 255.255.255.0 
+           [110/21] via 192.168.20.1, 06:37:56, inside1
+C        192.168.2.0 255.255.255.0 is directly connected, dmz
+L        192.168.2.254 255.255.255.255 is directly connected, dmz
+O        192.168.10.0 255.255.255.0 
+           [110/11] via 192.168.20.1, 06:51:48, inside1
+C        192.168.20.0 255.255.255.0 is directly connected, inside1
+L        192.168.20.2 255.255.255.255 is directly connected, inside1
+C        192.168.254.0 255.255.255.0 is directly connected, outside
+L        192.168.254.1 255.255.255.255 is directly connected, outside
+O        192.168.255.0 255.255.255.0 
+           [110/11] via 192.168.254.254, 06:14:38, outside
+
+A-ASA-02# 
