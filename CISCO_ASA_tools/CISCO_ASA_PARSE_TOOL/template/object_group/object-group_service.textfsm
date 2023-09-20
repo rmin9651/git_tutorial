@@ -1,0 +1,31 @@
+Value Filldown,Required NAME (\S+)
+Value Filldown DESCRIPTION (.+)
+Value TYPE (port|group|service)
+Value GRP_OBJECT (\S+)
+Value PORT_OBJECT (\S+)
+Value PORT_OBJECT_START (\S+)
+Value PORT_OBJECT_END (\S+)
+Value PROTOCOL (\S+)
+Value SRC_PORT (\S+)
+Value SRC_PORT_LESS_THAN (\S+)
+Value SRC_PORT_GREATER_THAN (\S+)
+Value SRC_PORT_RANGE_START (\S+)
+Value SRC_PORT_RANGE_END (\S+)
+Value DST_PORT (\S+)
+Value DST_PORT_LESS_THAN (\S+)
+Value DST_PORT_GREATER_THAN (\S+)
+Value DST_PORT_RANGE_START (\S+)
+Value DST_PORT_RANGE_END (\S+)
+
+Start
+  ^\S+ -> Continue.Clearall
+  ^object-group\s+service\s+${NAME}\s*
+  ^\s+description\s+${DESCRIPTION}\s*
+  ^\s+${TYPE}\-object\s+ -> Continue
+  ^\s+port-object\s+(range\s+${PORT_OBJECT_START}\s+${PORT_OBJECT_END}|eq\s+${PORT_OBJECT})\s* -> Record
+  ^\s+group-object\s+${GRP_OBJECT}\s* -> Record
+  ^\s+service-object\s+${PROTOCOL}\s+source\s+(eq\s+${SRC_PORT}|lt\s+${SRC_PORT_LESS_THAN}|gt\s+${SRC_PORT_GREATER_THAN}|range\s+${SRC_PORT_RANGE_START}\s+${SRC_PORT_RANGE_END})\s* -> Continue
+  ^\s+service-object\s+${PROTOCOL}.*destination\s+(eq\s+${DST_PORT}|lt\s+${DST_PORT_LESS_THAN}|gt\s+${DST_PORT_GREATER_THAN}|range\s+${DST_PORT_RANGE_START}\s+${DST_PORT_RANGE_END})\s* -> Continue
+  ^\s+service-object\s+${PROTOCOL}\s* -> Record
+
+EOF

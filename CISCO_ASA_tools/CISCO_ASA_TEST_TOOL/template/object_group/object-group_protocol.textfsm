@@ -1,0 +1,11 @@
+Value Filldown NAME (\S+)
+Value Filldown DESCRIPTION (.+)
+Value PROTOCOL (\S+)
+
+Start
+  ^\S+ -> Continue.Clearall
+  ^object-group\s+protocol\s+${NAME}\s*
+  ^\s+description\s+${DESCRIPTION}\s*
+  ^\s+protocol-object\s+${PROTOCOL}\s* -> Record
+
+EOF
