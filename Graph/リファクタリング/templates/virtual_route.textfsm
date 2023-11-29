@@ -1,0 +1,11 @@
+Value Filldown PROTOCOL (C|S|R|B|D|O|i|L)
+Value Required,Filldown NETWORK (\d+\.\d+\.\d+\.\d+|\S+)
+Value Filldown PREFIX_LENGTH (\d{1,2})
+Value NEXTHOP_IP (\d+\.\d+\.\d+\.\d+)
+Value NEXTHOP_IF (\S+)
+
+Start
+  ^${PROTOCOL}\s+${NETWORK}/${PREFIX_LENGTH}\s+${NEXTHOP_IP}\s+${NEXTHOP_IF} -> Record
+  ^${PROTOCOL}\s+${NETWORK}/${PREFIX_LENGTH}\s+${NEXTHOP_IF} -> Record
+
+EOF

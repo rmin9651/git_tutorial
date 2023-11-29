@@ -1,0 +1,9 @@
+"""
+VirtualDeviceのルートの書き方
+プロトコル NETWORK/PREFIX NEXTHOP_IP NEXTHOP_IF
+"""
+
+O     0.0.0.0/0 172.16.1.254 GigabitEthernet0/0
+C     172.16.1.0/24 GigabitEthernet0/1
+C     172.16.3.0/24 GigabitEthernet0/2
+L     172.16.1.254/32 GigabitEthernet0/1
